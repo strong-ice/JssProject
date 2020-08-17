@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-# Create your views here.
+from django.contrib.auth.views import LoginView
 
 
 def signup(request):
@@ -13,3 +13,7 @@ def signup(request):
 
             
     return render(request, 'signup.html', {'regi_form':regi_form})
+
+
+class MyLoginView(LoginView):
+    template_name = 'login.html'
