@@ -11,7 +11,7 @@ def index(request):
 def create(request):
     if request.method == "POST":
         filled_form = JssForm(request.POST)
-        if filled_form.is_vaild():
+        if filled_form.is_valid():
             filled_form.save()
             return redirect('index')
     jss_form = JssForm()
@@ -37,7 +37,7 @@ def update(request, jss_id):
     jss_form = JssForm(instance=my_jss)
     if request.method =="POST":
         updated_form = JssForm(request.POST, instance=my_jss)
-        if updated_form.is_vaild():
+        if updated_form.is_valid():
             updated_form.save()
             return redirect('index')
 
